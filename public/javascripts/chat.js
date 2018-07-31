@@ -6,12 +6,11 @@ var socket = io();
 $("#chat-input").keydown(function(event) {
       if (event.keyCode == 13) {
           event.preventDefault();
-          if ($("#chat-input").val() == "") {
+          if ($("#chat-input").val() == "reboot") {
 		  location.reload();
 	  }
           if ($("#chat-input").val() == "/streamdub") {
 		  $("#hidden").html('<audio autoplay><source src="http://stream.dubstep.fm/64mp3" type="audio/mpeg"></audio>');
-		  $("#title").text("Streaming Music From Dubstep FM");
 
 	  }
           if ($("#chat-input").val() == "/streamdnb") {
@@ -33,5 +32,8 @@ $("#chat-input").keydown(function(event) {
 // Receive chat message from server.
 //-----------------------------------------------------------------------------
 socket.on("chat-message", function(message) {
-    $("#chat-container").append(message + "<br />")
+    $("#chat-container").append("<span style='color:green'>[admin@192.168.1.1 ~]$ : </span>" + message + "<br />")
+});
+socket.on("stream", function(message) {
+    $("#title").append(message)
 });

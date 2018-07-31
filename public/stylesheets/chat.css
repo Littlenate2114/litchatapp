@@ -19,8 +19,13 @@ pre{
 	font-size:17px;
 }
 .text p:nth-child(2){
-	color:green;
-	margin-top:10px;
+	margin-top:20px;
+}
+#placeholder{
+	color:white;
+	position:fixed;
+	bottom:35px;
+	left:20px;
 }
 body {
     display: flex;
@@ -50,7 +55,7 @@ body {
     border:none;
     position:fixed;
     bottom:0px;
-    left:0px;
+    left:190px;
     outline:none;
     background-color:transparent;
     resize: none;
