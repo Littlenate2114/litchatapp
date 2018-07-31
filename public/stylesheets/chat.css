@@ -1,20 +1,58 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(term.ttf);
+}
+*{
+	margin:0px;
+	padding:0px;
+	font-family: myFirstFont;
+}
+pre{
+	margin-left:20px;
+}
+.text{
+	margin:10px 0px 0px 20px;
+	color:white;
+}
+.text p{
+	margin-left:15px;
+	font-size:17px;
+}
+.text p:nth-child(2){
+	color:green;
+	margin-top:10px;
+}
 body {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color:tomato;
+    background-color:black;
+    position:relative;
 }
 
 #chat-container {
-    height: 75vh;
-    width: 50vw;
-    border-style: solid;
-    margin-top: 1.5em;
+    height: 600px;
+    width: 100%;
+    padding:30px;
+    padding-top:0px;
+    box-sizing:border-box;
+    background-color:black;
+    color:white;
+    overflow:auto;
+    overflow-x:hidden;
 }
 
 #chat-input {
-    height: 10vh;
-    width: 50vw;
+    height: 50px;
+    padding:30px;
+    box-sizing:border-box;
+    padding-top:0px;
+    width: 100%;
+    border:none;
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    outline:none;
+    background-color:black;
     resize: none;
-    margin-top: 1em;
+    color:white;
 }
