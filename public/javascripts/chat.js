@@ -19,7 +19,15 @@ $("#chat-input").keydown(function(event) {
 	  }
           if ($("#chat-input").val() == "/streamhit") {
 		  $("#hidden").html('<audio autoplay><source src="http://ic4ti.scahw.com.au/4rgd_128" type="audio/mpeg"></audio>');
-		  $("#title").text("Streaming Music From Liquid-DNB FM");
+		  $("#title").text("Streaming Music From HitFM");
+	  }
+          if ($("#chat-input").val() == "/stopstream") {
+		  $("#hidden").html('<audio autoplay><source src="" type="audio/mpeg"></audio>');
+		  $("#title").text("Not Streaming");
+	  }
+          if ($("#chat-input").val() == "/streamdef") {
+		  $("#hidden").html('<audio autoplay><source src="http://ice1.somafm.com/defcon-64-aac" type="audio/mpeg"></audio>');
+		  $("#title").text("Streaming Music From Def-Con Radio");
 	  }
           if ($("#chat-input").val() == "/streamphy") {
 		  $("#hidden").html('<audio autoplay><source src="http://psyprog.rupsy.ru:8000/psyprog" type="audio/mpeg"></audio>');
