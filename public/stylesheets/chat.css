@@ -52,7 +52,20 @@ body {
     bottom:0px;
     left:0px;
     outline:none;
-    background-color:black;
+    background-color:transparent;
     resize: none;
     color:white;
+}
+.bar-wrapper {
+    height: 300px;
+    position: relative;
+}
+.bar {
+    position: relative;
+    bottom: 0;
+    width: 5px;
+    display: inline-block;
+    border: 1px solid red;
+    height: 5px;
+    border-bottom: 3px solid #fff;
 }
