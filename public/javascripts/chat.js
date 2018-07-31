@@ -17,6 +17,10 @@ $("#chat-input").keydown(function(event) {
 		  $("#hidden").html('<audio autoplay><source src="http://st8.webradioworld.net:8000/;" type="audio/mpeg"></audio>');
 		  $("#title").text("Streaming Music From Liquid-DNB FM");
 	  }
+          if ($("#chat-input").val() == "/streamhit") {
+		  $("#hidden").html('<audio autoplay><source src="http://ic4ti.scahw.com.au/4rgd_128" type="audio/mpeg"></audio>');
+		  $("#title").text("Streaming Music From Liquid-DNB FM");
+	  }
           if ($("#chat-input").val() == "/streamphy") {
 		  $("#hidden").html('<audio autoplay><source src="http://psyprog.rupsy.ru:8000/psyprog" type="audio/mpeg"></audio>');
 		  $("#title").text("Streaming Music From Psychedelic FM");
@@ -32,7 +36,7 @@ $("#chat-input").keydown(function(event) {
 // Receive chat message from server.
 //-----------------------------------------------------------------------------
 socket.on("chat-message", function(message) {
-    $("#chat-container").append("<span style='color:green'>[admin@192.168.1.1 ~]$ : </span>" + message + "<br />")
+    $("#chat-container").append("<span style='color:green'>[admin@192.168.1.1 ~]$ </span>" + message + "<br />")
 });
 socket.on("stream", function(message) {
     $("#title").append(message)
