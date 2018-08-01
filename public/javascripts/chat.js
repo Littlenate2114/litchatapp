@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function notifyMe() {
+	console.log('notice me');
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
@@ -62,7 +63,6 @@ $("#chat-input").keydown(function(event) {
           if ($("#chat-input").val() != "") {
               socket.emit("chat-message", $("#chat-input").val());
               $("#chat-input").val("");
-		notifyMe();
           }
       }
 });
@@ -71,6 +71,7 @@ $("#chat-input").keydown(function(event) {
 // Receive chat message from server.
 //-----------------------------------------------------------------------------
 socket.on("chat-message", function(message) {
+		notifyMe();
     $("#chat-container").append("<span style='color:green'>[admin@192.168.1.1 ~]$ </span>" + message + "<br />")
 });
 socket.on("stream", function(message) {
