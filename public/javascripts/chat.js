@@ -33,7 +33,7 @@ var socket = io();
 $("#chat-input").keydown(function(event) {
       if (event.keyCode == 13) {
           event.preventDefault();
-          if ($("#chat-input").val() == "reboot") {
+          if ($("#chat-input").val() == "clear") {
 		  location.reload();
 	  }
           if ($("#chat-input").val() == "/streamdub") {
