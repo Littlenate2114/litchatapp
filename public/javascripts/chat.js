@@ -13,9 +13,9 @@ function notifyMe() {
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
-    var notification = new Notification('New Notification From Admin', {
-      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
-      body: "msg",
+    var notification = new Notification('LitChat', {
+      icon: 'https://banner2.kisspng.com/20180618/ryu/kisspng-logo-ifox-creations-if012-wireless-speaker-favicon-5b2760904f2ca2.0158566515293072803243.jpg',
+      body: "The Shell Is Alive!",
     });
 
     notification.onclick = function () {
