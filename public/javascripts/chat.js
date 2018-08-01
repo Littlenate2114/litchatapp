@@ -1,3 +1,29 @@
+document.addEventListener('DOMContentLoaded', function () {
+  if (!Notification) {
+    alert('Desktop notifications not available in your browser. Try Chromium.'); 
+    return;
+  }
+
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+});
+
+function notifyMe() {
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+  else {
+    var notification = new Notification('New Notification From Admin', {
+      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+      body: "msg",
+    });
+
+    notification.onclick = function () {
+      window.open("index.html");      
+    };
+
+  }
+
+}
 var socket = io();
 
 //-----------------------------------------------------------------------------
@@ -36,6 +62,7 @@ $("#chat-input").keydown(function(event) {
           if ($("#chat-input").val() != "") {
               socket.emit("chat-message", $("#chat-input").val());
               $("#chat-input").val("");
+		notifyMe();
           }
       }
 });
