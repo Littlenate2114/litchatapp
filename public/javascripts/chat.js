@@ -1,30 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-  if (!Notification) {
-    alert('Desktop notifications not available in your browser. Try Chromium.'); 
-    return;
-  }
-
-  if (Notification.permission !== "granted")
-    Notification.requestPermission();
-});
-
-function notifyMe() {
-	console.log('notice me');
-  if (Notification.permission !== "granted")
-    Notification.requestPermission();
-  else {
-    var notification = new Notification('LitChat', {
-      icon: 'https://banner2.kisspng.com/20180618/ryu/kisspng-logo-ifox-creations-if012-wireless-speaker-favicon-5b2760904f2ca2.0158566515293072803243.jpg',
-      body: "The Shell Is Alive!",
-    });
-
-    notification.onclick = function () {
-      window.open("index.html");      
-    };
-
-  }
-
-}
 var socket = io();
 
 //-----------------------------------------------------------------------------
@@ -71,7 +44,6 @@ $("#chat-input").keydown(function(event) {
 // Receive chat message from server.
 //-----------------------------------------------------------------------------
 socket.on("chat-message", function(message) {
-		notifyMe();
     $("#chat-container").append("<span style='color:green'>[admin@192.168.1.1 ~]$ </span>" + message + "<br />")
 });
 socket.on("stream", function(message) {
