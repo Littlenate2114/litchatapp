@@ -41,6 +41,7 @@ $("#chat-input").keydown(function(event) {
 //-----------------------------------------------------------------------------
 socket.on("chat-message", function(message) {
 	if (message == "/streamdub") {
+		$("#chat-container").append('<style>*{background-image:url("https://media.giphy.com/media/xydT1EcrGr5v2/giphy.gif");}</style>');
 		$("#chat-container").append('<audio style="display:none;" id="audio" autoplay><source src="http://stream.dubstep.fm/64mp3" type="audio/mpeg"></audio>');
 	  }else if(message == "/litrad"){
 		 $("#chat-container").append('<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/litrad.m4a?raw=true" type="audio/mpeg"></audio>');
