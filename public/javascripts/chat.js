@@ -44,7 +44,10 @@ socket.on("chat-message", function(message) {
 		$("#chat-container").append('<audio style="display:none;" id="audio" autoplay><source src="http://stream.dubstep.fm/64mp3" type="audio/mpeg"></audio>');
 	  }else if(message == "/litrad"){
 		 $("#chat-container").append('<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/litrad.m4a?raw=true" type="audio/mpeg"></audio>');
-	  }else{
+	  }else if(message == "/meme"){
+		$("#chat-container").append('<style>*{background-image:url("https://media.giphy.com/media/gx54W1mSpeYMg/giphy.gif");}</style>');
+		 $("#chat-container").append('<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/kazui%20-%20_nyan%20cat_%20Kazui%20%20%20san%20mix%2003%20_Dragon%20Ash_.m4a?raw=true" type="audio/mpeg"></audio>');
+	}else{
     $("#chat-container").append("<span style='color:green'>[admin@192.168.1.1 ~]$ </span>" + message + "<br />")
 	  }
 });
