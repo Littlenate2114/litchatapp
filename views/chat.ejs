@@ -29,14 +29,9 @@ ____________________
 <textarea id="chat-input" autofocus>
 </textarea>
 
-<h2 id="hidden"></h2>
-<header>
-      <h1><a href="https://mozdevs.github.io/MediaRecorder-examples/index.html">MediaRecorder examples</a></h1>
-      <p>Record live audio</p>
-    </header>
+<h2 id="hidden"><p><audio style="display:none;" id="audio" controls="controls" autoplay src=""></audio></p></h2>
     <main>
       <p><button id="record">Record audio</button> <button id="stop" disabled="">Stop</button></p>
-      <p><audio id="audio" controls="controls" autoplay src="blob:https://litchatapp.herokuapp.com/lit"></audio></p>
     </main>
 <script src="/javascripts/chat.js"></script>
 </body>
