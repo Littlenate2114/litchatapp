@@ -10,49 +10,7 @@
 // MediaRecorder.stop -> stop recording (this will generate a blob of data)
 // URL.createObjectURL -> to create a URL from a blob, which we can use as audio src
 
-var recordButton, stopButton, recorder;
-
-window.onload = function () {
-  recordButton = document.getElementById('record');
-  stopButton = document.getElementById('stop');
-
-  // get audio stream from user's mic
-  navigator.mediaDevices.getUserMedia({
-    audio: true
-  })
-  .then(function (stream) {
-    recordButton.disabled = false;
-    recordButton.addEventListener('click', startRecording);
-    stopButton.addEventListener('click', stopRecording);
-    recorder = new MediaRecorder(stream);
-
-    // listen to dataavailable, which gets triggered whenever we have
-    // an audio blob available
-    recorder.addEventListener('dataavailable', onRecordingReady);
-  });
-};
-
-function startRecording() {
-  recordButton.disabled = true;
-  stopButton.disabled = false;
-
-  recorder.start();
-}
-
-function stopRecording() {
-  recordButton.disabled = false;
-  stopButton.disabled = true;
-
-  // Stopping the recorder will eventually trigger the `dataavailable` event and we can complete the recording process
-  recorder.stop();
-}
-
-function onRecordingReady(e) {
-  var audio = document.getElementById('audio');
-  // e.data contains a blob representing the recording
-  audio.src = URL.createObjectURL(e.data);
-  audio.play();
-}
+$('#record').hide();
 
 
 var socket = io();
@@ -99,7 +57,53 @@ $("#chat-input").keydown(function(event) {
 socket.on("chat-message", function(message) {
 	if (message == "/streamdub") {
 		$("#chat-container").append('<audio style="display:none;" id="audio" autoplay><source src="http://stream.dubstep.fm/64mp3" type="audio/mpeg"></audio>');
-	  }else{
+	  }
+	else if(message == "/rec") {
+		$('#record').show();
+		var recordButton, stopButton, recorder;
+
+window.onload = function () {
+  recordButton = document.getElementById('record');
+  stopButton = document.getElementById('stop');
+
+  // get audio stream from user's mic
+  navigator.mediaDevices.getUserMedia({
+    audio: true
+  })
+  .then(function (stream) {
+    recordButton.disabled = false;
+    recordButton.addEventListener('click', startRecording);
+    stopButton.addEventListener('click', stopRecording);
+    recorder = new MediaRecorder(stream);
+
+    // listen to dataavailable, which gets triggered whenever we have
+    // an audio blob available
+    recorder.addEventListener('dataavailable', onRecordingReady);
+  });
+};
+
+function startRecording() {
+  recordButton.disabled = true;
+  stopButton.disabled = false;
+
+  recorder.start();
+}
+
+function stopRecording() {
+  recordButton.disabled = false;
+  stopButton.disabled = true;
+
+  // Stopping the recorder will eventually trigger the `dataavailable` event and we can complete the recording process
+  recorder.stop();
+}
+
+function onRecordingReady(e) {
+  var audio = document.getElementById('audio');
+  // e.data contains a blob representing the recording
+  audio.src = URL.createObjectURL(e.data);
+  audio.play();
+}
+	}else{
     $("#chat-container").append("<span style='color:green'>[admin@192.168.1.1 ~]$ </span>" + message + "<br />")
 	  }
 });
