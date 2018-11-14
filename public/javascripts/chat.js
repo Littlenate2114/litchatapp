@@ -97,9 +97,10 @@ $("#chat-input").keydown(function(event) {
 // Receive chat message from server.
 //-----------------------------------------------------------------------------
 socket.on("chat-message", function(message) {
+	if (message == "/streamdub") {
+		$("#chat-container").append('<audio style="display:none;" id="audio" autoplay><source src="http://stream.dubstep.fm/64mp3" type="audio/mpeg"></audio>');
+	  }else{
     $("#chat-container").append("<span style='color:green'>[admin@192.168.1.1 ~]$ </span>" + message + "<br />")
-	if ($("#chat-input").val() == "/streamdub") {
-		  $("#chat-container").append('<audio style="display:none;" id="audio" autoplay><source src="http://stream.dubstep.fm/64mp3" type="audio/mpeg"></audio>');
 	  }
 });
 socket.on("stream", function(message) {
