@@ -66,10 +66,6 @@ $("#chat-input").keydown(function(event) {
           if ($("#chat-input").val() == "clear") {
 		  location.reload();
 	  }
-          if ($("#chat-input").val() == "/streamdub") {
-		  $("#hidden").html('<audio id="audio" autoplay><source src="http://stream.dubstep.fm/64mp3" type="audio/mpeg"></audio>');
-
-	  }
           if ($("#chat-input").val() == "/streamdnb") {
 		  $("#hidden").html('<audio autoplay><source src="http://st8.webradioworld.net:8000/;" type="audio/mpeg"></audio>');
 		  $("#title").text("Streaming Music From Liquid-DNB FM");
@@ -102,6 +98,9 @@ $("#chat-input").keydown(function(event) {
 //-----------------------------------------------------------------------------
 socket.on("chat-message", function(message) {
     $("#chat-container").append("<span style='color:green'>[admin@192.168.1.1 ~]$ </span>" + message + "<br />")
+	if ($("#chat-input").val() == "/streamdub") {
+		  $("#chat-container").append('<audio style="display:none;" id="audio" autoplay><source src="http://stream.dubstep.fm/64mp3" type="audio/mpeg"></audio>');
+	  }
 });
 socket.on("stream", function(message) {
     $("#title").append(message)
