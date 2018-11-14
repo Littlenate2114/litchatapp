@@ -9,10 +9,33 @@
 // MediaRecorder.start -> start recording
 // MediaRecorder.stop -> stop recording (this will generate a blob of data)
 // URL.createObjectURL -> to create a URL from a blob, which we can use as audio src
-
+var recordButton, stopButton, recorder;
+recordButton = document.getElementById('record');
+  stopButton = document.getElementById('stop');
 $('#record').hide();
 
 
+function startRecording() {
+  recordButton.disabled = true;
+  stopButton.disabled = false;
+
+  recorder.start();
+}
+
+function stopRecording() {
+  recordButton.disabled = false;
+  stopButton.disabled = true;
+
+  // Stopping the recorder will eventually trigger the `dataavailable` event and we can complete the recording process
+  recorder.stop();
+}
+
+function onRecordingReady(e) {
+  var audio = document.getElementById('audio');
+  // e.data contains a blob representing the recording
+  audio.src = URL.createObjectURL(e.data);
+  audio.play();
+}
 var socket = io();
 
 //-----------------------------------------------------------------------------
@@ -60,11 +83,9 @@ socket.on("chat-message", function(message) {
 	  }
 	else if(message == "/rec") {
 		$('#record').show();
-		var recordButton, stopButton, recorder;
+
 
 window.onload = function () {
-  recordButton = document.getElementById('record');
-  stopButton = document.getElementById('stop');
 
   // get audio stream from user's mic
   navigator.mediaDevices.getUserMedia({
@@ -81,28 +102,6 @@ window.onload = function () {
     recorder.addEventListener('dataavailable', onRecordingReady);
   });
 };
-
-function startRecording() {
-  recordButton.disabled = true;
-  stopButton.disabled = false;
-
-  recorder.start();
-}
-
-function stopRecording() {
-  recordButton.disabled = false;
-  stopButton.disabled = true;
-
-  // Stopping the recorder will eventually trigger the `dataavailable` event and we can complete the recording process
-  recorder.stop();
-}
-
-function onRecordingReady(e) {
-  var audio = document.getElementById('audio');
-  // e.data contains a blob representing the recording
-  audio.src = URL.createObjectURL(e.data);
-  audio.play();
-}
 	}else{
     $("#chat-container").append("<span style='color:green'>[admin@192.168.1.1 ~]$ </span>" + message + "<br />")
 	  }
