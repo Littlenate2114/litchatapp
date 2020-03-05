@@ -55,8 +55,7 @@ socket.on("chat-message", function(message) {
 		}else if (message == "/ping"){
 		$("#chat-container").append("<span style='color:white'>[Notification]$ </span>" + message + "<br />")
 		 $("#hidden").html('<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/litnotification.mp3?raw=true" type="audio/mpeg"></audio>');
-		}
-	}else if (message == "/ponggg"){
+		}else if (message == "/ponggg"){
 		$("#chat-container").append("<span style='color:white'>[Notification]$ </span>" + message + "<br />")
 		 $("#hidden").html('<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/pong.mp3?raw=true" type="audio/mpeg"></audio>');
 		}
