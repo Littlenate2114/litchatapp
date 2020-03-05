@@ -48,10 +48,13 @@ socket.on("chat-message", function(message) {
 	  }else if(message == "/meme"){
 		$("#chat-container").append('<style>*{background-image:url("https://media.giphy.com/media/gx54W1mSpeYMg/giphy.gif");}</style>');
 		 $("#chat-container").append('<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/kazui%20-%20_nyan%20cat_%20Kazui%20%20%20san%20mix%2003%20_Dragon%20Ash_.m4a?raw=true" type="audio/mpeg"></audio>');
-	  }else if (message == "rickroll"){
+	  }else if (message == "/rickroll"){
 		$("#chat-container").append("<span style='color:red'>[admin]$ </span>" + message + "<br />")
 		 $("#hidden").html('<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/rick.mp3?raw=true" type="audio/mpeg"></audio>');
 		 $("#title").text("CRITICAL SECURITY ERROR");
+		}else if (message == "/ping"){
+		$("#chat-container").append("<span style='color:white'>[Notification]$ </span>" + message + "<br />")
+		 $("#hidden").html('<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/litnotification.mp3?raw=true" type="audio/mpeg"></audio>');
 		}
 	
 	else{
