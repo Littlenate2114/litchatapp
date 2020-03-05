@@ -63,7 +63,7 @@ socket.on("chat-message", function(message) {
 	
 	else{
 		
-		var buttons = ['<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/litnotification.mp3?raw=true" type="audio/mpeg"></audio>', '<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/pong.mp3?raw=true" type="audio/mpeg"></audio>', '<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/newnot.mp3?raw=true" type="audio/mpeg"></audio>'];
+		var buttons = ['<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/litnotification.mp3?raw=true" type="audio/mpeg"></audio>', '<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/pong.mp3?raw=true" type="audio/mpeg"></audio>', '<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/newnot.mp3?raw=true" type="audio/mpeg"></audio>','<audio style="display:none;" id="audio" autoplay><source src="https://github.com/Littlenate2114/litchatapp/blob/master/newnoty.mp3?raw=true" type="audio/mpeg"></audio>'];
 		var buttonIndex = buttons[Math.floor(Math.random() * buttons.length)];
     $("#chat-container").append("<span style='color:green'>[user@192.168.1.1 ~]$ </span>" + message + "<br />" + buttonIndex)
 	  }
